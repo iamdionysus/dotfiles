@@ -17,12 +17,13 @@ Plug 'tpope/vim-tbone'
 
 "  browsing
 Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
 " basic settings
-set noswapfile
 set autoindent
+set noswapfile
 set smartindent
 set lazyredraw
 set laststatus=2

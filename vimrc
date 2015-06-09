@@ -7,7 +7,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary',        { 'on': '<Plug>Commentary' }
 
-
 " git
 Plug 'tpope/vim-fugitive' 
 
@@ -16,7 +15,7 @@ Plug 'tpope/vim-tbone'
 
 " look and feel
 
-" browsing
+"  browsing
 Plug 'scrooloose/nerdtree'
 
 call plug#end()
@@ -92,6 +91,8 @@ vnoremap <C-q>     <esc>
 nnoremap <Leader>q :q<cr>
 nnoremap <Leader>Q :qa!<cr>
 
+" Gcommit -a
+nnoremap <leader>c :Gcommit-a<cr>i
 
 " <F10> NERD Tree
 inoremap <F10> <esc>:NERDTreeToggle<cr>

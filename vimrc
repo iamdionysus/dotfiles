@@ -10,6 +10,9 @@ Plug 'tpope/vim-commentary',        { 'on': '<Plug>Commentary' }
 " git
 Plug 'tpope/vim-fugitive' 
 
+" tmux
+Plug 'tpope/vim-tbone'
+
 " look and feel
 
 " browsing

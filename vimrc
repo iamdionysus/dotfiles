@@ -85,11 +85,11 @@ nnoremap <C-s> :update<cr>
 nnoremap <leader>s :update<cr>
 
 " quit
-inoremap <C-q> <esc>:q<cr>
-nnoremap <C-q>     :q<cr>
+inoremap <C-q> <esc>:wq<cr>
+nnoremap <C-q>     :wq<cr>
 vnoremap <C-q>     <esc>
-nnoremap <Leader>q :q<cr>
-nnoremap <Leader>Q :qa!<cr>
+nnoremap <Leader>q :wq<cr>
+nnoremap <Leader>Q :wqa!<cr>
 
 " Gcommit -a
 nnoremap <leader>c :Gcommit-a<cr>i

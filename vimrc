@@ -93,6 +93,7 @@ nnoremap <Leader>Q :qa!<cr>
 
 " Gcommit -a
 nnoremap <leader>c :Gcommit-a<cr>i
+nnoremap <leader>p :Gpush origin master<cr>
 
 " <F10> NERD Tree
 inoremap <F10> <esc>:NERDTreeToggle<cr>

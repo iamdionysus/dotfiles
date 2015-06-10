@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary',        { 'on': '<Plug>Commentary' }
+Plug 'tpope/vim-commentary'
 
 " git
 " Plug 'tpope/vim-fugitive' " this is not working under msys2
@@ -90,11 +90,6 @@ nnoremap <C-q>     :q<cr>
 vnoremap <C-q>     <esc>
 nnoremap <Leader>q :q<cr>
 nnoremap <Leader>Q :qa!<cr>
-
-" Gcommit -a
-nnoremap <leader>s :Gstatus<cr>
-nnoremap <leader>c :Gcommit-a<cr>i
-nnoremap <leader>p :Gpush origin master<cr>
 
 " <F10> NERD Tree
 inoremap <F10> <esc>:NERDTreeToggle<cr>

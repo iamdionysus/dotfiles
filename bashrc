@@ -24,4 +24,4 @@ alias which='type -p'
 alias gss='git status --short'
 alias gst='git status'
 alias ggpush='git push origin master'
-
+alias gc='git commit -am'

@@ -23,5 +23,5 @@ alias hc="history -c"
 alias which='type -p'
 alias gss='git status --short'
 alias gst='git status'
-alias ggpush='git push origin master'
+alias ggpush='git push origin $(current_branch)'
 alias gc='git commit -am'

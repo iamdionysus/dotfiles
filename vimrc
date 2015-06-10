@@ -8,7 +8,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary',        { 'on': '<Plug>Commentary' }
 
 " git
-Plug 'tpope/vim-fugitive' 
+" Plug 'tpope/vim-fugitive' " this is not working under msys2
 
 " tmux
 Plug 'tpope/vim-tbone'
@@ -83,7 +83,6 @@ nnoremap <tab> <c-w>w
 " save
 inoremap <C-s> <C-o>:update<cr>
 nnoremap <C-s> :update<cr>
-nnoremap <leader>s :update<cr>
 
 " quit
 inoremap <C-q> <esc>:q<cr>
@@ -93,6 +92,7 @@ nnoremap <Leader>q :q<cr>
 nnoremap <Leader>Q :qa!<cr>
 
 " Gcommit -a
+nnoremap <leader>s :Gstatus<cr>
 nnoremap <leader>c :Gcommit-a<cr>i
 nnoremap <leader>p :Gpush origin master<cr>
 

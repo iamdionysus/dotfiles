@@ -8,6 +8,9 @@ fi
 # to make C-s, C-q work
 stty -ixoff -ixon
 
+# PATH
+PATH="$PATH"
+
 # aliases
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -23,5 +26,5 @@ alias hc="history -c"
 alias which='type -p'
 alias gss='git status --short'
 alias gst='git status'
-alias ggpush='git push origin master'
+alias ggpush='git push'
 alias gc='git commit -am'

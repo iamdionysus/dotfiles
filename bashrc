@@ -24,7 +24,11 @@ alias ll='ls -l'
 alias vi='vim'
 alias hc="history -c"
 alias which='type -p'
-alias gss='git status --short'
 alias gst='git status'
+alias gss='git status --short'
+alias glo='git log --oneline --decorate --color'
+alias grv='git remote --verbose'
+
+alias gaa='git add --all'
+alias gca='git commit -am'
 alias ggpush='git push'
-alias gc='git commit -am'

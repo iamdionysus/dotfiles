@@ -10,6 +10,9 @@ Plug 'tpope/vim-commentary'
 " git
 " Plug 'tpope/vim-fugitive' " this is not working under msys2
 
+" ruby
+Plug 'thoughtbot/vim-rspec'
+
 " tmux
 Plug 'tpope/vim-tbone'
 

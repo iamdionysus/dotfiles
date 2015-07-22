@@ -5,6 +5,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# 256 color
+export TERM=xterm-256color
+
 # to make C-s, C-q work
 stty -ixoff -ixon
 

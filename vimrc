@@ -100,7 +100,7 @@ nmap Q @q
 nnoremap <tab> <c-w>w
 
 " save
-inoremap <C-s> <C-o>:update<cr>
+inoremap <C-s> <esc>:update<cr>
 nnoremap <C-s> :update<cr>
 
 " quit
@@ -116,5 +116,6 @@ nnoremap <F10> :NERDTreeToggle<cr>
 
 " vim-fugitive
 nmap <Leader>g :Gstatus<cr>gg<c-n>
+nnoremap <Leader>d :Gdiff<cr>
 "clojure
 autocmd FileType clojure RainbowParentheses

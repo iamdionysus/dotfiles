@@ -1,7 +1,3 @@
-if has('win32') || has('win64')
-  let g:plug_threads = 8
-endif
-
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
@@ -10,6 +6,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-rsi'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " git
@@ -30,9 +27,6 @@ Plug 'tpope/vim-bundler'
 
 " lang
 Plug 'derekwyatt/vim-scala'
-
-" tmux
-Plug 'tpope/vim-tbone'
 
 " browsing
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -71,6 +65,7 @@ set nojoinspaces
 set autoread
 set clipboard=unnamed
 set nocursorline
+set ruler
 
 " <leader> as space
 let mapleader = ' '
@@ -82,15 +77,13 @@ inoremap kk <Esc>l
 " xnoremap jk <Esc>
 " cnoremap jk <C-c>
 
-" move one
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>l
+" move in insert mode
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 
 " move buffer
-nnoremap <C-j> :bprevious<cr>
-nnoremap <C-k> :bnext<cr>
+nnoremap <Leader>n :bnext<cr>
+nnoremap <Leader>p :bprevious<cr>
 
 " move lines
 nnoremap <silent> <M-k> :move-2<cr>
@@ -118,11 +111,10 @@ nnoremap <C-s> :update<cr>
 inoremap <C-q> <esc>:q<cr>
 nnoremap <C-q>     :q<cr>
 vnoremap <C-q>     <esc>
-
 nnoremap <Leader>q :q<cr>
 
-" turn off highlight
-nnoremap <Leader>h :nohlsearch<cr>
+" clear the highlighting
+nnoremap <silent> <C-L> :nohlsearch<CR>
 
 " vim-easy-align
 xmap <Enter> <Plug>(EasyAlign)

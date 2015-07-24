@@ -15,6 +15,9 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 " git
 Plug 'tpope/vim-fugitive' " this is not working under msys2
 
+" lang
+Plug 'tpope/vim-dispatch'
+
 " clojure
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'kovisoft/paredit', { 'for': 'clojure' }
@@ -23,7 +26,7 @@ Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-clojure-highlight'
 
 " ruby
-Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-bundler'
 
 " lang
 Plug 'derekwyatt/vim-scala'
@@ -131,7 +134,10 @@ nnoremap <F10> :NERDTreeToggle<cr>
 
 " vim-fugitive
 nmap <Leader>g :Gstatus<cr>gg<c-n>
-nnoremap <Leader>d :Gdiff<cr>
+
+" ruby
+autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'
+nnoremap <Leader>d :Dispatch<cr>
 
 "clojure
 autocmd FileType clojure RainbowParentheses

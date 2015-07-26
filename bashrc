@@ -10,6 +10,15 @@ if [ -d "$HOME/bin" ]; then
    PATH="$HOME/bin:$PATH"
 fi
 
+# 256 color
+export TERM=xterm-256color
+
+# to make C-s, C-q work
+stty -ixoff -ixon
+
+# PATH
+PATH="$PATH"
+
 # aliases
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -23,7 +32,11 @@ alias ll='ls -l'
 alias vi='vim'
 alias hc="history -c"
 alias which='type -p'
-alias gss='git status --short'
 alias gst='git status'
-alias ggpush='git push origin $(current_branch)'
-alias gc='git commit -am'
+alias gss='git status --short'
+alias glo='git log --oneline --decorate --color'
+alias grv='git remote --verbose'
+
+alias gaa='git add --all'
+alias gca='git commit -am'
+alias ggpush='git push'

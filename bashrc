@@ -5,8 +5,10 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# to make C-s, C-q work
-stty -ixoff -ixon
+# Path
+if [ -d "$HOME/bin" ]; then
+   PATH="$HOME/bin:$PATH"
+fi
 
 # aliases
 alias ..='cd ..'

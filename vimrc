@@ -35,12 +35,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 
 " look and feel
-Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/seoul256.vim'
 
 call plug#end()
 
 " look and feel
-colorscheme monokai
+let g:seoul256_background = 233
+colorscheme seoul256
 
 " basic settings
 syntax on
@@ -53,7 +54,7 @@ set showcmd
 set backspace=indent,eol,start
 set whichwrap=b,s
 set shortmess=aIT
-set hlsearch " CTRL-L / CTRL-R W
+set hlsearch 
 set incsearch
 set hidden
 set ignorecase smartcase

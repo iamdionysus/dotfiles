@@ -130,7 +130,9 @@ nnoremap <F10> :NERDTreeToggle<cr>
 
 " vim-fugitive
 nmap <Leader>g :Gstatus<cr>gg<c-n>
+nnoremap <Leader>d :Gdiff<cr>
 nnoremap <Leader>p :Gpush<cr>
+nnoremap <Leader>t :Gcommit -a<cr>
 
 " ruby
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'

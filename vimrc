@@ -84,21 +84,13 @@ inoremap kk <Esc>l
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 
-" move buffer
-nnoremap <Leader>n :bnext<cr>
-nnoremap <Leader>p :bprevious<cr>
-
 " move lines
 nnoremap <silent> <M-k> :move-2<cr>
 nnoremap <silent> <M-j> :move+<cr>
-nnoremap <silent> <C-h> <<
-nnoremap <silent> <C-l> >>
 xnoremap <silent> <M-k> :move-2<cr>gv
 xnoremap <silent> <M-j> :move'>+<cr>gv
-xnoremap <silent> <C-h> <gv
-xnoremap <silent> <C-l> >gv
-xnoremap < <gv
-xnoremap > >gv
+xnoremap > >gv " indent
+xnoremap < <gv " dedent
 
 " qq to record, Q to replay
 nmap Q @q
@@ -116,12 +108,24 @@ nnoremap <C-q>     :q<cr>
 vnoremap <C-q>     <esc>
 nnoremap <Leader>q :q<cr>
 
+" dispatch
+inoremap <F6> <esc>:update<cr>:Dispatch<cr>
+nnoremap <F6> :update<cr>:Dispatch<cr>
+
+" some unimparied 
+nnoremap [q :cprev<cr>
+nnoremap ]q :cnext<cr>
+nnoremap [b :bprevious<cr>
+nnoremap ]b :bnext<cr>
+
+" quickfix
+nnoremap <Leader>c :cc<cr>
+
 " clear the highlighting
-nnoremap <silent> <C-L> :nohlsearch<CR>
+nnoremap <silent> <C-l> :nohlsearch<CR>
 
 " vim-easy-align
 xmap <Enter> <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 
 " NERD Tree shortcuts
 inoremap <F10> <esc>:NERDTreeToggle<cr>
@@ -129,10 +133,10 @@ nnoremap <F10> :NERDTreeToggle<cr>
 
 " vim-fugitive
 nmap <Leader>g :Gstatus<cr>gg<c-n>
+nnoremap <Leader>p :Gpush<cr>
 
 " ruby
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'
-nnoremap <Leader>d :Dispatch<cr>
 
 "clojure
 autocmd FileType clojure RainbowParentheses

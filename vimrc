@@ -18,10 +18,11 @@ Plug 'tpope/vim-dispatch'
 
 " clojure
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'kovisoft/paredit', { 'for': 'clojure' }
+" Plug 'kovisoft/paredit', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-clojure-highlight'
+Plug 'guns/vim-sexp'
 
 " ruby
 Plug 'tpope/vim-bundler'

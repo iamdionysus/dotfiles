@@ -1,5 +1,6 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
+let g:plug_url_format = 'git@github.com:%s.git'
 
 " edit
 Plug 'tpope/vim-repeat'
@@ -34,7 +35,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 
 " look and feel
-Plug 'lsdr/monokai'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 

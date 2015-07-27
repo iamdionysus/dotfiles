@@ -12,7 +12,6 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " git
 Plug 'tpope/vim-fugitive' " this is not working under msys2
-Plug 'airblade/vim-gitgutter'
 
 " lang
 Plug 'tpope/vim-dispatch'

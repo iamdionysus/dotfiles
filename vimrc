@@ -1,47 +1,10 @@
-" vim-plug
-call plug#begin('~/.vim/plugged')
-
-" edit
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-rsi'
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-
-" git
-Plug 'tpope/vim-fugitive' " this is not working under msys2
-
-" lang
-Plug 'tpope/vim-dispatch'
-
-" clojure
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'kovisoft/paredit', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight'
-
-" ruby
-Plug 'tpope/vim-bundler'
-
-" lang
-Plug 'derekwyatt/vim-scala'
-
-" browsing
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jeetsukumaran/vim-buffergator'
-
-" look and feel
-Plug 'lsdr/monokai'
-
-call plug#end()
+execute pathogen#infect('bundle/{}', '~/dotfiles/vim/bundle/{}')
 
 " look and feel
 colorscheme monokai
 
 " basic settings
+syntax on
 set autoindent
 set noswapfile
 set smartindent

@@ -42,6 +42,7 @@ call plug#end()
 colorscheme monokai
 
 " basic settings
+syntax on
 set autoindent
 set noswapfile
 set smartindent

@@ -34,7 +34,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'tpope/vim-unimparied'
+Plug 'tpope/vim-unimpaired'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'

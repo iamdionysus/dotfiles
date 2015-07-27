@@ -12,6 +12,7 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " git
 Plug 'tpope/vim-fugitive' " this is not working under msys2
+Plug 'airblade/vim-gitgutter'
 
 " lang
 Plug 'tpope/vim-dispatch'
@@ -33,6 +34,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'tpope/vim-unimparied'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'
@@ -77,6 +79,11 @@ let maplocalleader = ' '
 " escape
 inoremap jj <Esc>l
 inoremap kk <Esc>l
+inoremap <silent> <C-g> <Esc>:nohlsearch<CR>
+nnoremap <silent> <C-g> <Esc>:nohlsearch<CR>
+xnoremap <silent> <C-g> <Esc>:nohlsearch<CR>
+cnoremap <silent> <C-g> <C-c>:nohlsearch<CR>
+
 " xnoremap jk <Esc>
 " cnoremap jk <C-c>
 
@@ -112,17 +119,8 @@ nnoremap <Leader>q :q<cr>
 inoremap <F6> <esc>:update<cr>:Dispatch<cr>
 nnoremap <F6> :update<cr>:Dispatch<cr>
 
-" some unimparied 
-nnoremap [q :cprev<cr>
-nnoremap ]q :cnext<cr>
-nnoremap [b :bprevious<cr>
-nnoremap ]b :bnext<cr>
-
 " quickfix
 nnoremap <Leader>c :cc<cr>
-
-" clear the highlighting
-nnoremap <silent> <C-l> :nohlsearch<CR>
 
 " vim-easy-align
 xmap <Enter> <Plug>(EasyAlign)

@@ -22,6 +22,9 @@ function outlook-open-message-with
 
 # alias
 set-alias e start-emacs
+set-alias v gvim
+set-alias vi gvim
+set-alias vim gvim
 set-alias new new-object
 
 set-alias gaa git-add-all

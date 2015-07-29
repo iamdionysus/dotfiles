@@ -1,6 +1,6 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
-let g:plug_url_format = 'git@github.com:%s.git'
+let g:plug_url_format = 'git@github.com:%s.git' " use ssh instead of https
 
 " edit
 Plug 'tpope/vim-repeat'
@@ -11,40 +11,40 @@ Plug 'tpope/vim-rsi'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 
 " git
-Plug 'tpope/vim-fugitive' " this is not working under msys2
+Plug 'tpope/vim-fugitive' 
 
 " lang
 Plug 'tpope/vim-dispatch'
+Plug 'derekwyatt/vim-scala'
+" Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
 
 " clojure
 Plug 'junegunn/rainbow_parentheses.vim'
-" Plug 'kovisoft/paredit', { 'for': 'clojure' }
+Plug 'iamdionysus/paredit', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-clojure-highlight'
-Plug 'guns/vim-sexp'
+" Plug 'guns/vim-sexp'
 
 " ruby
 Plug 'tpope/vim-bundler'
 
-" lang
-Plug 'derekwyatt/vim-scala'
-
 " browsing
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jeetsukumaran/vim-buffergator'
+" Plug 'jeetsukumaran/vim-buffergator'
 Plug 'tpope/vim-unimpaired'
+Plug 'mileszs/ack.vim'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'
 
 call plug#end()
 
-" look and feel
-let g:seoul256_background = 233
-colorscheme seoul256
-
+" ----------------------------------------------------------------------
+"  sensible
+" ----------------------------------------------------------------------
 " basic settings
 syntax on
 set autoindent
@@ -71,21 +71,19 @@ set autoread
 set clipboard=unnamed
 set nocursorline
 set ruler
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " <leader> as space
 let mapleader = ' '
 let maplocalleader = ' '
 
 " escape
-inoremap jj <Esc>l
-inoremap kk <Esc>l
+inoremap jk <Esc>l
+cnoremap jk <C-c>
 inoremap <silent> <C-g> <Esc>:nohlsearch<CR>
 nnoremap <silent> <C-g> <Esc>:nohlsearch<CR>
 xnoremap <silent> <C-g> <Esc>:nohlsearch<CR>
 cnoremap <silent> <C-g> <C-c>:nohlsearch<CR>
-
-" xnoremap jk <Esc>
-" cnoremap jk <C-c>
 
 " move in insert mode
 inoremap <C-j> <C-o>j
@@ -115,12 +113,26 @@ nnoremap <C-q>     :q<cr>
 vnoremap <C-q>     <esc>
 nnoremap <Leader>q :q<cr>
 
+" quickfix
+nnoremap <Leader>c :cc<cr>
+
+
+" ----------------------------------------------------------------------
+"  vim plug settings
+" ----------------------------------------------------------------------
+
+" look and feel
+let g:seoul256_background = 233
+colorscheme seoul256
+
 " dispatch
 inoremap <F6> <esc>:update<cr>:Dispatch<cr>
 nnoremap <F6> :update<cr>:Dispatch<cr>
 
-" quickfix
-nnoremap <Leader>c :cc<cr>
+" ack.vim
+if executable('ag')
+  let &grepprg = 'ag --nogroup --nocolor --column'
+endif
 
 " vim-easy-align
 xmap <Enter> <Plug>(EasyAlign)
@@ -135,6 +147,10 @@ nnoremap <Leader>d :Gdiff<cr>
 nnoremap <Leader>p :Gpush<cr>
 nnoremap <Leader>t :Gcommit -a<cr>
 
+" CtrlP
+nnoremap <Leader>b :CtrlPBuffer<cr>
+nnoremap <Leader>r :CtrlPMRU<cr>
+
 " ruby
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'
 
@@ -142,4 +158,20 @@ autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'
 autocmd FileType clojure RainbowParentheses
 autocmd FileType clojure xnoremap <Leader><Leader> :Eval<CR>
 autocmd FileType clojure nnoremap <Leader><Leader> :Eval<CR>
+" paredit-forward-slurp-sexp
+inoremap <C-l> <esc>ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveRight()<cr>`al
+nnoremap <C-l> ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveRight()<cr>`a
+
+" paredit-forward-barf-sexp
+inoremap <C-h> <esc>ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveLeft()<cr>`al
+nnoremap <C-h> ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveLeft()<cr>`a
+
+" paredit-backward-slurp-sexp
+inoremap <M-h> <esc>ma:<C-U>call PareditSmartJumpOpening(0)<cr>:call PareditMoveLeft()<cr>`al
+nnoremap <M-h> ma:<C-U>call PareditSmartJumpOpening(0)<cr>:call PareditMoveLeft()<cr>`a
+
+" paredit-backward-barf-sexp
+inoremap <M-l> <esc>ma:<C-U>call PareditSmartJumpOpening(0)<cr>:call PareditMoveRight()<cr>`al
+nnoremap <M-l> ma:<C-U>call PareditSmartJumpOpening(0)<cr>:call PareditMoveRight()<cr>`a
+
 let g:paredit_smartjump = 1

@@ -130,8 +130,8 @@ inoremap <F6> <esc>:update<cr>:Dispatch<cr>
 nnoremap <F6> :update<cr>:Dispatch<cr>
 
 " ack.vim
-if executable('ag')
-  let &grepprg = 'ag --nogroup --nocolor --column'
+if executable('pt')
+  let g:ackprg = 'pt --nogroup --nocolor'
 endif
 
 " vim-easy-align
@@ -158,6 +158,7 @@ autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'
 autocmd FileType clojure RainbowParentheses
 autocmd FileType clojure xnoremap <Leader><Leader> :Eval<CR>
 autocmd FileType clojure nnoremap <Leader><Leader> :Eval<CR>
+
 " paredit-forward-slurp-sexp
 inoremap <C-l> <esc>ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveRight()<cr>`al
 nnoremap <C-l> ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveRight()<cr>`a

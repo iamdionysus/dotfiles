@@ -26,7 +26,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'gabrielelana/vim-markdown'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-
+Plug 'mattn/emmet-vim'
 
 " clojure
 Plug 'junegunn/rainbow_parentheses.vim'

@@ -12,8 +12,8 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-" Plug 'jceb/vim-orgmode'
-" Plug 'tpope/vim-speeddating'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
 " git
 Plug 'tpope/vim-fugitive' 
@@ -24,6 +24,9 @@ Plug 'derekwyatt/vim-scala'
 " Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 Plug 'gabrielelana/vim-markdown'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 
 " clojure
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -31,21 +34,21 @@ Plug 'iamdionysus/paredit', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-clojure-highlight'
-" Plug 'guns/vim-sexp'
 
 " ruby
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
 
 " browsing
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'jeetsukumaran/vim-buffergator'
 Plug 'tpope/vim-unimpaired'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/open-browser.vim'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'
+Plug 'tpope/vim-flagship'
 
 call plug#end()
 
@@ -59,6 +62,8 @@ set noswapfile
 set smartindent
 set lazyredraw
 set laststatus=2
+set showtabline=2
+set guioptions-=e
 set showcmd
 set backspace=indent,eol,start
 set whichwrap=b,s
@@ -78,7 +83,8 @@ set autoread
 set clipboard=unnamed
 set nocursorline
 set ruler
-set autochdir " change the current directory automatically based on file
+autocmd BufEnter * silent! lcd %:p:h
+" set autochdir " change the current directory automatically based on file
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " <leader> as space
@@ -116,6 +122,8 @@ inoremap <C-s> <esc>:update<cr>
 nnoremap <C-s> :update<cr>
 
 " quit
+" kill buffer without closing window
+nnoremap <Leader>k :bprevious\|bdelete \#<cr> 
 inoremap <C-q> <esc>:q<cr>
 nnoremap <C-q>     :q<cr>
 vnoremap <C-q>     <esc>
@@ -190,3 +198,7 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
+" goyo and limelight
+nnoremap <Leader>z :Goyo<CR>
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!

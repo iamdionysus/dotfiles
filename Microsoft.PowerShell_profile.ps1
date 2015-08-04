@@ -4,7 +4,7 @@ function start-emacs
   C:\emacs\bin\emacsclientw.exe --alternate-editor=runemacs.exe -c $args[0]
 }
 function git-status { git status }
-function git-status-shoft { git status --short}
+function git-status-short { git status --short}
 function git-log-oneline-decorate { git log --oneline --decorate --color }
 function git-add-all { git add --all }
 function git-commit-all-message { git commit --all --message $args[0] }
@@ -31,7 +31,7 @@ set-alias gaa git-add-all
 set-alias gca git-commit-all-message
 
 set-alias gst git-status
-set-alias gss git-status-shoft
+set-alias gss git-status-shor
 set-alias grv git-remote-verbose
 set-alias glo git-log-oneline-decorate
 

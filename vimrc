@@ -45,6 +45,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/open-browser.vim'
+Plug 'dyng/ctrlsf.vim'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'
@@ -83,9 +84,12 @@ set autoread
 set clipboard=unnamed
 set nocursorline
 set ruler
-autocmd BufEnter * silent! lcd %:p:h
+set colorcolumn=80
+
 " set autochdir " change the current directory automatically based on file
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufEnter * silent! lcd %:p:h
+set textwidth=0
+set formatoptions+=t
 
 " <leader> as space
 let mapleader = ' '
@@ -158,10 +162,10 @@ inoremap <F10> <esc>:NERDTreeToggle<cr>
 nnoremap <F10> :NERDTreeToggle<cr>
 
 " vim-fugitive
-nmap <Leader>g :Gstatus<cr>gg<c-n>
+nmap <Leader>s :Gstatus<cr>gg<c-n>
 nnoremap <Leader>d :Gdiff<cr>
 nnoremap <Leader>p :Gpush<cr>
-nnoremap <Leader>t :Gcommit -a<cr>
+nnoremap <Leader>g :Gcommit -a<cr>
 
 " CtrlP
 nnoremap <Leader>b :CtrlPBuffer<cr>
@@ -169,6 +173,8 @@ nnoremap <Leader>r :CtrlPMRU<cr>
 
 " ruby
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'
+autocmd FileType ruby setlocal textwidth=78
+
 
 "clojure
 autocmd FileType clojure RainbowParentheses
@@ -202,3 +208,13 @@ vmap gx <Plug>(openbrowser-smart-search)
 nnoremap <Leader>z :Goyo<CR>
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" ctrlsf
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>

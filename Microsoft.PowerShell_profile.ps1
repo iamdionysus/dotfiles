@@ -1,14 +1,16 @@
 # custom function
-function start-emacs
-{
-  C:\emacs\bin\emacsclientw.exe --alternate-editor=runemacs.exe -c $args[0]
-}
 function git-status { git status }
 function git-status-short { git status --short}
 function git-log-oneline-decorate { git log --oneline --decorate --color }
 function git-add-all { git add --all }
 function git-commit-all-message { git commit --all --message $args[0] }
 function git-remote-verbose { git remote --verbose }
+
+function start-emacs
+{
+  C:\emacs\bin\emacsclientw.exe --alternate-editor=runemacs.exe -c $args[0]
+}
+
 function outlook-open-message-with
 {
   $body = @($input)
@@ -18,6 +20,26 @@ function outlook-open-message-with
   $mail.Body = ($body -join "`n")
   $inspector = $mail.GetInspector
   $inspector.Display()
+}
+
+function ln-s
+{
+  [CmdletBinding()]
+  Param(
+  [Parameter(Mandatory=$True,Position=1)]
+  [string]$target,
+
+  [Parameter(Mandatory=$True,Position=2)]
+  [string]$linkname
+  )
+
+  write-verbose "target: $target, link-name: $linkname"
+  if (test-path -pathtype container $target) {
+    cmd /c mklink /d $linkname $target 
+  }
+  else {
+    cmd /c mklink $linkname $target
+  }
 }
 
 # alias

@@ -1,0 +1,84 @@
+" ----------------------------------------------------------------------
+"  sensible
+" ----------------------------------------------------------------------
+" basic settings
+syntax on
+set autoindent
+set noswapfile
+set smartindent
+set lazyredraw
+set laststatus=2
+set showtabline=2
+set guioptions-=e
+set showcmd
+set backspace=indent,eol,start
+set whichwrap=b,s
+set shortmess=aIT
+set hlsearch 
+set incsearch
+set hidden
+set ignorecase smartcase
+set wildmenu
+set tabstop=2
+set shiftwidth=2
+set expandtab smarttab
+set scrolloff=5
+set encoding=utf-8
+set nojoinspaces
+set autoread
+set clipboard=unnamed
+set nocursorline
+set ruler
+set colorcolumn=80
+
+" set autochdir " change the current directory automatically based on file
+autocmd BufEnter * silent! lcd %:p:h
+set textwidth=0
+set formatoptions+=t
+
+" <leader> as space
+let mapleader = ' '
+let maplocalleader = ' '
+
+" escape
+inoremap jk <Esc>l
+cnoremap jk <C-c>
+inoremap <silent> <C-g> <Esc>:nohlsearch<CR>
+nnoremap <silent> <C-g> <Esc>:nohlsearch<CR>
+xnoremap <silent> <C-g> <Esc>:nohlsearch<CR>
+cnoremap <silent> <C-g> <C-c>:nohlsearch<CR>
+
+" move in insert mode
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+
+" move lines
+nnoremap <silent> <M-k> :move-2<cr>
+nnoremap <silent> <M-j> :move+<cr>
+xnoremap <silent> <M-k> :move-2<cr>gv
+xnoremap <silent> <M-j> :move'>+<cr>gv
+xnoremap > >gv " indent
+xnoremap < <gv " dedent
+
+" qq to record, Q to replay
+nmap Q @q
+
+" circular windows navigation 
+nnoremap <tab> <c-w>w
+
+" save
+inoremap <C-s> <esc>:update<cr>
+nnoremap <C-s> :update<cr>
+
+" quit
+" kill buffer without closing window
+nnoremap <Leader>k :bprevious\|bdelete \#<cr> 
+inoremap <C-q> <esc>:q<cr>
+nnoremap <C-q>     :q<cr>
+vnoremap <C-q>     <esc>
+nnoremap <Leader>q :q<cr>
+
+" quickfix
+nnoremap <Leader>c :cc<cr>
+
+

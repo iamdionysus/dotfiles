@@ -14,6 +14,7 @@ Plug 'tpope/vim-rsi'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-jdaddy'
 
 " git
 Plug 'tpope/vim-fugitive' 
@@ -27,6 +28,8 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
+Plug 'PProvost/vim-ps1'
+Plug 'vim-scripts/nginx.vim'
 
 " clojure
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -38,6 +41,7 @@ Plug 'guns/vim-clojure-highlight'
 " ruby
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
+Plug 'ain/vim-capistrano'
 
 " browsing
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }

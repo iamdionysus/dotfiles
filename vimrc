@@ -66,6 +66,8 @@ call plug#end()
 " ----------------------------------------------------------------------
 " basic settings
 syntax on
+set fileformats=unix,dos,mac
+set cmdheight=2
 set autoindent
 set noswapfile
 set smartindent
@@ -122,6 +124,10 @@ xnoremap <silent> <M-k> :move-2<cr>gv
 xnoremap <silent> <M-j> :move'>+<cr>gv
 xnoremap > >gv " indent
 xnoremap < <gv " dedent
+
+" begin a new line in insert mode 
+inoremap <M-o> <C-O>o
+inoremap <M-O> <C-O>O
 
 " qq to record, Q to replay
 nmap Q @q
@@ -228,3 +234,4 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+

@@ -33,11 +33,11 @@ Plug 'PProvost/vim-ps1'
 Plug 'vim-scripts/nginx.vim'
 
 " clojure
-Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
 Plug 'iamdionysus/paredit', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight'
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 
 " ruby
 Plug 'tpope/vim-bundler'
@@ -51,7 +51,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/open-browser.vim'
 Plug 'dyng/ctrlsf.vim'
-Plug 'pgdouyon/vim-evanesco'
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-oblique'
+" Plug 'pgdouyon/vim-evanesco'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'
@@ -93,7 +95,7 @@ set ruler
 set colorcolumn=80
 
 " set autochdir " change the current directory automatically based on file
-autocmd BufEnter * silent! lcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
 set textwidth=0
 set formatoptions+=t
 
@@ -102,12 +104,12 @@ let mapleader = ' '
 let maplocalleader = ' '
 
 " escape
-inoremap jk <Esc>l
+inoremap jk <Esc>
 cnoremap jk <C-c>
-inoremap <silent> <C-g> <Esc>:nohlsearch<CR>
-nnoremap <silent> <C-g> <Esc>:nohlsearch<CR>
-xnoremap <silent> <C-g> <Esc>:nohlsearch<CR>
-cnoremap <silent> <C-g> <C-c>:nohlsearch<CR>
+inoremap <C-g> <Esc>
+nnoremap <C-g> <Esc>
+xnoremap <C-g> <Esc>
+cnoremap <C-g> <C-c>
 
 " move in insert mode
 inoremap <C-j> <C-o>j

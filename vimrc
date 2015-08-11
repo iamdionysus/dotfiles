@@ -15,6 +15,7 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-jdaddy'
+Plug 'terryma/vim-multiple-cursors'
 
 " git
 Plug 'tpope/vim-fugitive' 
@@ -50,6 +51,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/open-browser.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'pgdouyon/vim-evanesco'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'
@@ -131,7 +133,7 @@ nnoremap <C-s> :update<cr>
 
 " quit
 " kill buffer without closing window
-nnoremap <Leader>k :bprevious\|bdelete \#<cr> 
+nnoremap <Leader>k :buffer#\|bdelete#<cr> 
 inoremap <C-q> <esc>:q<cr>
 nnoremap <C-q>     :q<cr>
 vnoremap <C-q>     <esc>
@@ -172,8 +174,10 @@ nnoremap <Leader>p :Gpush<cr>
 nnoremap <Leader>g :Gcommit -a<cr>
 
 " CtrlP
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co']
 nnoremap <Leader>b :CtrlPBuffer<cr>
 nnoremap <Leader>r :CtrlPMRU<cr>
+
 
 " ruby
 autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'

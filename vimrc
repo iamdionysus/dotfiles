@@ -34,10 +34,13 @@ Plug 'vim-scripts/nginx.vim'
 
 " clojure
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
-Plug 'iamdionysus/paredit', { 'for': 'clojure' }
+" Plug 'iamdionysus/paredit', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+
 
 " ruby
 Plug 'tpope/vim-bundler'
@@ -174,6 +177,7 @@ xmap <Enter> <Plug>(EasyAlign)
 " NERD Tree shortcuts
 inoremap <F10> <esc>:NERDTreeToggle<cr>
 nnoremap <F10> :NERDTreeToggle<cr>
+let NERDTreeQuitOnOpen=1
 
 " vim-fugitive
 nmap <Leader>s :Gstatus<cr>gg<c-n>
@@ -196,24 +200,10 @@ autocmd FileType ruby setlocal textwidth=78
 autocmd FileType clojure RainbowParentheses
 autocmd FileType clojure xnoremap <Leader><Leader> :Eval<CR>
 autocmd FileType clojure nnoremap <Leader><Leader> :Eval<CR>
+let g:clojure_align_subforms = 1
+let g:clojure_align_multiline_strings = 1
 
-" paredit-forward-slurp-sexp
-inoremap <C-l> <esc>ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveRight()<cr>`al
-nnoremap <C-l> ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveRight()<cr>`a
-
-" paredit-forward-barf-sexp
-inoremap <C-h> <esc>ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveLeft()<cr>`al
-nnoremap <C-h> ma:<C-U>call PareditSmartJumpClosing(0)<cr>:call PareditMoveLeft()<cr>`a
-
-" paredit-backward-slurp-sexp
-inoremap <M-h> <esc>ma:<C-U>call PareditSmartJumpOpening(0)<cr>:call PareditMoveLeft()<cr>`al
-nnoremap <M-h> ma:<C-U>call PareditSmartJumpOpening(0)<cr>:call PareditMoveLeft()<cr>`a
-
-" paredit-backward-barf-sexp
-inoremap <M-l> <esc>ma:<C-U>call PareditSmartJumpOpening(0)<cr>:call PareditMoveRight()<cr>`al
-nnoremap <M-l> ma:<C-U>call PareditSmartJumpOpening(0)<cr>:call PareditMoveRight()<cr>`a
-
-let g:paredit_smartjump = 1
+" let g:paredit_smartjump = 1
 
 " open-browser
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
@@ -233,5 +223,5 @@ nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+" inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 

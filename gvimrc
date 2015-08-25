@@ -1,3 +1,4 @@
+let $LANG = 'en_US'
 set guioptions-=m "menubar
 set guioptions-=T "tool bar
 set guioptions-=r "right scroll bar

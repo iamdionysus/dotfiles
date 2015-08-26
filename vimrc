@@ -144,9 +144,6 @@ nnoremap <Leader>k :buffer#\|bdelete#<cr>
 " quickfix
 nnoremap <Leader>c :cc<cr>
 
-" recognize *.md as makrdown, not Modula-2
-" autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
 " ----------------------------------------------------------------------
 "  plug in settings
 " ----------------------------------------------------------------------

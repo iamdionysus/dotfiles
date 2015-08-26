@@ -44,7 +44,7 @@ Plug 'tpope/vim-rails'
 Plug 'ain/vim-capistrano'
 
 " browsing
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'mileszs/ack.vim'
@@ -52,6 +52,7 @@ Plug 'vim-scripts/open-browser.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
+Plug 'tpope/vim-vinegar'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'
@@ -94,7 +95,7 @@ set nocursorline
 set ruler
 set colorcolumn=80
 
-" set autochdir " change the current directory automatically based on file
+" %: current file, p: full path file name, h: head of the file name
 " autocmd BufEnter * silent! lcd %:p:h
 set textwidth=0
 set formatoptions+=t
@@ -137,13 +138,8 @@ nnoremap <tab> <c-w>w
 inoremap <C-s> <esc>:update<cr>
 nnoremap <C-s> :update<cr>
 
-" quit
 " kill buffer without closing window
 nnoremap <Leader>k :buffer#\|bdelete#<cr> 
-inoremap <C-q> <esc>:q<cr>
-nnoremap <C-q>     :q<cr>
-vnoremap <C-q>     <esc>
-nnoremap <Leader>q :q<cr>
 
 " quickfix
 nnoremap <Leader>c :cc<cr>

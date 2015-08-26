@@ -217,6 +217,6 @@ nnoremap <C-F>t :CtrlSFToggle<CR>
 
 " vim-flavored-amrkdown
 augroup markdown
-  au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+  autocmd!
+  autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END

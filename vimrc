@@ -165,9 +165,9 @@ endif
 xmap <Enter> <Plug>(EasyAlign)
 
 " NERD Tree shortcuts
-inoremap <F10> <esc>:NERDTreeToggle<cr>
-nnoremap <F10> :NERDTreeToggle<cr>
-let NERDTreeQuitOnOpen=1
+" inoremap <F10> <esc>:NERDTreeToggle<cr>
+" nnoremap <F10> :NERDTreeToggle<cr>
+" let NERDTreeQuitOnOpen=1
 
 " vim-fugitive
 nmap <Leader>s :Gstatus<cr>gg<c-n>

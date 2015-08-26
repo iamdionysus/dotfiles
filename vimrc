@@ -23,18 +23,14 @@ Plug 'tpope/vim-fugitive'
 " lang
 Plug 'tpope/vim-dispatch'
 Plug 'derekwyatt/vim-scala'
-" Plug 'godlygeek/tabular'
-" Plug 'plasticboy/vim-markdown'
-Plug 'gabrielelana/vim-markdown'
+Plug 'jtratner/vim-flavored-markdown'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 Plug 'PProvost/vim-ps1'
-Plug 'vim-scripts/nginx.vim'
 
 " clojure
 Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
-" Plug 'iamdionysus/paredit', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
@@ -56,7 +52,6 @@ Plug 'vim-scripts/open-browser.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
-" Plug 'pgdouyon/vim-evanesco'
 
 " look and feel
 Plug 'junegunn/seoul256.vim'
@@ -153,6 +148,8 @@ nnoremap <Leader>q :q<cr>
 " quickfix
 nnoremap <Leader>c :cc<cr>
 
+" recognize *.md as makrdown, not Modula-2
+" autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " ----------------------------------------------------------------------
 "  plug in settings
@@ -186,7 +183,7 @@ nnoremap <Leader>p :Gpush<cr>
 nnoremap <Leader>g :Gcommit -a<cr>
 
 " CtrlP
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 nnoremap <Leader>b :CtrlPBuffer<cr>
 nnoremap <Leader>r :CtrlPMRU<cr>
 
@@ -225,3 +222,8 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 " inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
+" vim-flavored-amrkdown
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END

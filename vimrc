@@ -30,7 +30,7 @@ Plug 'mattn/emmet-vim'
 Plug 'PProvost/vim-ps1'
 
 " clojure
-Plug 'junegunn/rainbow_parentheses.vim', { 'for': 'clojure' }
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
@@ -46,6 +46,7 @@ Plug 'ain/vim-capistrano'
 " browsing
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'tpope/vim-unimpaired'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/open-browser.vim'
@@ -176,6 +177,8 @@ nnoremap <Leader>p :Gpush<cr>
 nnoremap <Leader>g :Gcommit -a<cr>
 
 " CtrlP
+let g:ctrlp_max_files=0
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 nnoremap <Leader>b :CtrlPBuffer<cr>
 nnoremap <Leader>r :CtrlPMRU<cr>

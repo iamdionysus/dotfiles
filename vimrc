@@ -46,7 +46,7 @@ Plug 'ain/vim-capistrano'
 " browsing
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher'
+" Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'tpope/vim-unimpaired'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/open-browser.vim'
@@ -109,7 +109,7 @@ let maplocalleader = ' '
 inoremap jk <Esc>
 cnoremap jk <C-c>
 inoremap <C-g> <Esc>
-nnoremap <C-g> <Esc>
+nnoremap <C-g> <Esc>:nohlsearch<cr>
 xnoremap <C-g> <Esc>
 cnoremap <C-g> <C-c>
 
@@ -178,7 +178,7 @@ nnoremap <Leader>g :Gcommit -a<cr>
 
 " CtrlP
 let g:ctrlp_max_files=0
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+" let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 nnoremap <Leader>b :CtrlPBuffer<cr>
 nnoremap <Leader>r :CtrlPMRU<cr>

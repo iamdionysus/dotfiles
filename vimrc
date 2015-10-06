@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 let g:plug_url_format = 'git@github.com:%s.git' " use ssh instead of https
 
 " edit
-Plug 'freitass/todo.txt-vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
@@ -42,6 +41,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'ain/vim-capistrano'
+Plug 'vim-ruby/vim-ruby'
 
 " browsing
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }

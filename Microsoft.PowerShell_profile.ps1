@@ -43,6 +43,7 @@ function ln-s
 }
 
 # alias
+set-alias ll ls
 set-alias e start-emacs
 set-alias v gvim
 set-alias new new-object
@@ -54,6 +55,12 @@ set-alias gst git-status
 set-alias gss git-status-shor
 set-alias grv git-remote-verbose
 set-alias glo git-log-oneline-decorate
+
+# set default ruby
+if ((get-command uru -ErrorAction SilentlyContinue) `
+  -And (test-path $HOME\.ruby-version)) {
+  uru auto
+}
 
 # PSReadLine
 Import-Module PSReadLine

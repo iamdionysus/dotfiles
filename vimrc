@@ -40,6 +40,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 " ruby
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
 Plug 'ain/vim-capistrano'
 Plug 'vim-ruby/vim-ruby'
 
@@ -154,8 +155,8 @@ let g:seoul256_background = 233
 colorscheme seoul256
 
 " dispatch
-inoremap <F6> <esc>:update<cr>:Dispatch<cr>
-nnoremap <F6> :update<cr>:Dispatch<cr>
+inoremap <F5> <esc>:update<cr>:Dispatch<cr>
+nnoremap <F5> :update<cr>:Dispatch<cr>
 
 " ack.vim
 if executable('pt')
@@ -185,7 +186,7 @@ nnoremap <Leader>r :CtrlPMRU<cr>
 
 
 " ruby
-autocmd FileType ruby let b:dispatch = 'bundle exec rspec %:p'
+autocmd FileType ruby let b:dispatch = 'bundle exec rake test'
 autocmd FileType ruby setlocal textwidth=78
 
 

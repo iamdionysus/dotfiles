@@ -98,13 +98,13 @@ install()
     nginx-passenger) say "installing nginx + phusion passenger"
       install_nginx_passenger
       ;;
-    java) echo "installing java 8"
+    java) say "installing java 8"
       install_java
       ;;
-    redis) echo "installing redis"
+    redis) say "installing redis"
       install_redis
       ;;
-    mysql) echo "installing mysql"
+    mysql) say "installing mysql"
       install_mysql
       ;;
     *) echo "I do not know how to install $1"

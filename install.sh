@@ -33,8 +33,8 @@ install_ruby()
   sudo make install
   ruby -v
   echo "gem: --no-ri --no-rdoc" > ~/.gemrc
-  gem install bundler
-  gem install rails
+  sudo gem install bundler
+  sudo gem install rails
   say "done!"
 }
 

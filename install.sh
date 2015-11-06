@@ -75,7 +75,7 @@ install_redis()
 
 install_mysql()
 {
-  sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+  sudo apt-get install mysql-server mysql-client libmysqlclient-dev -y
 }
 
 ######################################################################

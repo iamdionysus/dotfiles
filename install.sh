@@ -16,14 +16,11 @@ say()
 ######################################################################
 # Indivisual install task
 ######################################################################
-install_git()
-{
-  echo
-}
 
-set_git_global_config()
+install_dependency_ruby()
 {
-  say "done!"
+  sudo apt-get update
+  sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-d -y
 }
 
 install_ruby()
@@ -41,6 +38,25 @@ install_ruby()
   say "done!"
 }
 
+install_nginx_passenger()
+{
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
+  sudo apt-get install -y apt-transport-https ca-certificates
+
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
+  sudo apt-get install -y apt-transport-https ca-certificates
+
+  # Add Passenger APT repository
+  sudo sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main > /etc/apt/sources.list.d/passenger.list'
+  sudo apt-get update
+
+  # Install Passenger & Nginx
+  sudo apt-get install -y nginx-extras passenger
+
+  # Start nginx
+  sudo service nginx start
+}
+
 install_java()
 {
   sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fdownload.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jre-8u60-linux-x64.tar.gz"
@@ -52,12 +68,14 @@ install_java()
 
 install_redis()
 {
-  echo
+  sudo add-apt-repository ppa:chris-lea/redis-server
+  sudo apt-get update
+  sudo apt-get install redis-server
 }
 
 install_mysql()
 {
-  echo
+  sudo apt-get install mysql-server mysql-client libmysqlclient-dev
 }
 
 ######################################################################
@@ -69,14 +87,16 @@ install()
 {
   case "$1" in
     dash) say "installinging rails + nginx + phusion passenger"
-      install_git
-      ;;
-    git) say "installing git"
-      install_git
-      set_git_global_config
+      install_dependency_ruby
+      install_ruby
+      install_nginx_passenger
       ;;
     ruby) say "installing ruby"
+      install_dependency_ruby
       install_ruby
+      ;;
+    nginx-passenger) say "installing nginx + phusion passenger"
+      install_nginx_passenger
       ;;
     java) echo "installing java 8"
       install_java

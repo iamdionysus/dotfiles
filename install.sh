@@ -20,7 +20,10 @@ say()
 install_dependency_ruby()
 {
   sudo apt-get update
-  sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-d -y
+  sudo apt-get install git-core curl zlib1g-dev build-essential \ 
+    libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \ 
+    libxml2-dev libxslt1-dev libcurl4-openssl-dev \ 
+    python-software-properties libffi-d -y
 }
 
 install_ruby()
@@ -38,12 +41,19 @@ install_ruby()
   say "done!"
 }
 
+install_node()
+{
+  sudo add-apt-repository ppa:chris-lea/node.js
+  sudo apt-get install nodejs -y
+}
+
 install_nginx_passenger()
 {
-  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \ 
+    --recv-keys 561F9B9CAC40B2F7
   sudo apt-get install -y apt-transport-https ca-certificates
-
-  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \ 
+    --recv-keys 561F9B9CAC40B2F7
   sudo apt-get install -y apt-transport-https ca-certificates
 
   # Add Passenger APT repository
@@ -59,10 +69,7 @@ install_nginx_passenger()
 
 install_java()
 {
-  sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fdownload.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jre-8u60-linux-x64.tar.gz"
-  sudo tar xvf jre-8u60-linux-x64.tar.gz
-  sudo chown -R root: jre1.8.0_60
-  sudo alternatives --install /usr/bin/java java /opt/jre1.8.0_60/bin/java 1
+  sudo apt-get install openjdk-8-jre
   sudo alternatives --config java
 }
 
@@ -91,11 +98,15 @@ install()
     dash) say "installinging rails + nginx + phusion passenger"
       install_dependency_ruby
       install_ruby
+      install_node
       install_nginx_passenger
       ;;
     ruby) say "installing ruby"
       install_dependency_ruby
       install_ruby
+      ;;
+    node) say "installing node"
+      install_node
       ;;
     nginx-passenger) say "installing nginx + phusion passenger"
       install_nginx_passenger

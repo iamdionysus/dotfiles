@@ -45,7 +45,6 @@ Plug 'ain/vim-capistrano'
 Plug 'vim-ruby/vim-ruby'
 
 " browsing
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'tpope/vim-unimpaired'
@@ -114,21 +113,13 @@ nnoremap <C-g> <Esc>:nohlsearch<cr>
 xnoremap <C-g> <Esc>
 cnoremap <C-g> <C-c>
 
-" move in insert mode
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
-
 " move lines
-nnoremap <silent> <M-k> :move-2<cr>
-nnoremap <silent> <M-j> :move+<cr>
-xnoremap <silent> <M-k> :move-2<cr>gv
-xnoremap <silent> <M-j> :move'>+<cr>gv
+nnoremap <silent> <C-k> :move-2<cr>
+nnoremap <silent> <C-j> :move+<cr>
+xnoremap <silent> <C-k> :move-2<cr>gv
+xnoremap <silent> <C-j> :move'>+<cr>gv
 xnoremap > >gv " indent
 xnoremap < <gv " dedent
-
-" begin a new line in insert mode 
-inoremap <M-o> <C-O>o
-inoremap <M-O> <C-O>O
 
 " qq to record, Q to replay
 nmap Q @q
@@ -142,9 +133,6 @@ nnoremap <C-s> :update<cr>
 
 " kill buffer without closing window
 nnoremap <Leader>k :buffer#\|bdelete#<cr> 
-
-" quickfix
-nnoremap <Leader>c :cc<cr>
 
 " ----------------------------------------------------------------------
 "  plug in settings
@@ -165,11 +153,6 @@ endif
 
 " vim-easy-align
 xmap <Enter> <Plug>(EasyAlign)
-
-" NERD Tree shortcuts
-" inoremap <F10> <esc>:NERDTreeToggle<cr>
-" nnoremap <F10> :NERDTreeToggle<cr>
-" let NERDTreeQuitOnOpen=1
 
 " vim-fugitive
 nmap <Leader>s :Gstatus<cr>gg<c-n>

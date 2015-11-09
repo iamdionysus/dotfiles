@@ -13,6 +13,7 @@ brew install caskroom/cask/brew-cask
 # Install apps
 brew cask install github-desktop
 brew cask install google-chrome
+brew cask install slack
 
 #Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 0.02

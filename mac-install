@@ -16,4 +16,8 @@ brew cask install github-desktop
 brew cask install google-chrome
 brew cask install slack
 
+# Install java + scala + sbt
+brew cask install java
+brew install scala sbt
+
 # link

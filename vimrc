@@ -22,6 +22,9 @@ nnoremap <C-s> :update<cr>
 " kill buffer without closing window
 nnoremap <Leader>k :buffer#\|bdelete#<cr> 
 
+" system clipboard
+set clipboard=unnamed
+
 " ----------------------------------------------------------------------
 "  plug in settings
 " ----------------------------------------------------------------------
@@ -29,6 +32,11 @@ nnoremap <Leader>k :buffer#\|bdelete#<cr>
 " look and feel
 let g:seoul256_background = 233
 colorscheme seoul256
+
+" vim-flag
+set laststatus=2
+set showtabline=2
+set guioptions-=e
 
 " dispatch
 inoremap <F5> <esc>:update<cr>:Dispatch<cr>

@@ -10,14 +10,14 @@ if [ -d "$HOME/bin" ]; then
    PATH="$HOME/bin:$PATH"
 fi
 
-# 256 color
-export TERM=xterm-256color
+# 256 color and make it work with tmux screen-256color
+if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 # to make C-s, C-q work
 stty -ixoff -ixon
 
 # PATH
-PATH="$PATH"
+export PATH=/usr/local/bin:$PATH
 
 # aliases
 alias ..='cd ..'

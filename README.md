@@ -2,6 +2,42 @@
 
 ## Install
 
+### Homebrew
+
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+### Common tool
+
+```sh
+brew install ack \
+             curl wget
+             git \
+             redis \
+             tmux reattach-to-user-namespace
+```
+
+
+### Homebrew cask
+
+    $ brew install caskroom/cask/brew-cask
+
+### Install apps
+
+```sh
+brew cask install github-desktop
+brew cask install google-chrome
+brew cask install slack
+```
+
+### Install java + scala + sbt
+
+```sh
+brew cask install java
+brew install scala sbt
+```
+
+### Link dotfiles
+
     $ ./install-mac
 
 ## Tmux tips

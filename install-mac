@@ -1,0 +1,11 @@
+# Add links
+rm -rf ~/.bashrc
+rm -rf ~/.vimrc
+rm -rf ~/.tmux.conf
+rm -rf ~/.tmuxinator
+
+# Add links
+ln -s $(pwd)/bashrc ~/.bashrc
+ln -s $(pwd)/vimrc ~/.vimrc
+ln -s $(pwd)/tmux.conf ~/.tmux.conf
+ln -s $(pwd)/tmuxinator ~/.tmuxinator

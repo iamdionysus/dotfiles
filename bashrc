@@ -21,6 +21,7 @@ stty -ixoff -ixon
 
 # rails s -e production serve static files
 export RAILS_SERVE_STATIC_FILES=1
+
 # PATH
 export PATH=/usr/local/bin:$PATH
 

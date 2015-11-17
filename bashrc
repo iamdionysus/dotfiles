@@ -19,6 +19,8 @@ if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 # to make C-s, C-q work
 stty -ixoff -ixon
 
+# rails s -e production serve static files
+export RAILS_SERVE_STATIC_FILES=1
 # PATH
 export PATH=/usr/local/bin:$PATH
 

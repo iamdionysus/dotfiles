@@ -28,16 +28,23 @@ install_dependency_ruby()
 
 install_ruby()
 {
-  wget https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.gz
-  tar -xzf ruby-2.2.3.tar.gz
-  cd ruby-2.2.3/
-  ./configure
-  make
-  sudo make install
+  cd
+  git clone git://github.com/sstephenson/rbenv.git .rbenv
+  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+  echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+  exec $SHELL
+
+  git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+  echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+  exec $SHELL
+
+  git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+
+  rbenv install 2.2.3
+  rbenv global 2.2.3
   ruby -v
   echo "gem: --no-ri --no-rdoc" > ~/.gemrc
   sudo gem install bundler
-  sudo gem install rails
   say "done!"
 }
 

@@ -41,6 +41,8 @@ set guioptions-=e
 " dispatch
 inoremap <F5> <esc>:update<cr>:Dispatch<cr>
 nnoremap <F5> :update<cr>:Dispatch<cr>
+inoremap <F9> <esc>:update<cr>:Dispatch! webpack<cr>
+nnoremap <F9> :update<cr>:Dispatch! webpack<cr>
 
 " ack.vim
 if executable('pt')

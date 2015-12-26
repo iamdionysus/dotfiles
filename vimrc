@@ -43,6 +43,8 @@ inoremap <F5> <esc>:update<cr>:Dispatch<cr>
 nnoremap <F5> :update<cr>:Dispatch<cr>
 inoremap <F9> <esc>:update<cr>:Dispatch! webpack<cr>
 nnoremap <F9> :update<cr>:Dispatch! webpack<cr>
+inoremap <F10> <esc>:Copen<cr>
+nnoremap <F10> :Copen<cr>
 
 " ack.vim
 if executable('pt')

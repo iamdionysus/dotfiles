@@ -32,8 +32,8 @@ windows:
         - vim ~/src/dotfiles
         - cd ~/src/dotfiles
   - dash: vim ~/src/dash
-  - sea:
-      layout: main-vertical
+  - dash-run:
+      layout: main-horizontal
       panes:
-        - vim ~/src/sea
-        - cd ~/src/sea
+        - cd ~/src/dash && sbt ~re-start
+        - cd ~/src/dash

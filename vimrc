@@ -5,6 +5,10 @@ let mapleader = ' '
 let maplocalleader = ' '
 
 " move lines
+nnoremap <silent> <C-k> :move-2<cr>
+nnoremap <silent> <C-j> :move+<cr>
+xnoremap <silent> <C-k> :move-2<cr>gv
+xnoremap <silent> <C-j> :move'>+<cr>gv
 xnoremap > >gv " indent
 xnoremap < <gv " dedent
 

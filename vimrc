@@ -5,14 +5,10 @@ let mapleader = ' '
 let maplocalleader = ' '
 
 " move lines
-nnoremap <silent> <C-k> :move-2<cr>
-nnoremap <silent> <C-j> :move+<cr>
-xnoremap <silent> <C-k> :move-2<cr>gv
-xnoremap <silent> <C-j> :move'>+<cr>gv
 xnoremap > >gv " indent
 xnoremap < <gv " dedent
 
-" circular windows navigation 
+" circular windows navigation
 nnoremap <tab> <c-w>w
 
 " save
@@ -20,7 +16,7 @@ inoremap <C-s> <esc>:update<cr>
 nnoremap <C-s> :update<cr>
 
 " kill buffer without closing window
-nnoremap <Leader>k :buffer#\|bdelete#<cr> 
+nnoremap <Leader>k :buffer#\|bdelete#<cr>
 
 " system clipboard
 set clipboard=unnamed
@@ -39,12 +35,20 @@ set showtabline=2
 set guioptions-=e
 
 " dispatch
-inoremap <F5> <esc>:update<cr>:Dispatch<cr>
-nnoremap <F5> :update<cr>:Dispatch<cr>
-inoremap <F9> <esc>:update<cr>:Dispatch! webpack<cr>
-nnoremap <F9> :update<cr>:Dispatch! webpack<cr>
+inoremap <F5> <esc>:update<cr>:Make<cr>
+nnoremap <F5> :update<cr>:Make<cr>
+
+inoremap <F6> <esc>:update<cr>:Dispatch!<cr>
+nnoremap <F6> :update<cr>:Dispatch!<cr>
+
 inoremap <F10> <esc>:Copen<cr>
 nnoremap <F10> :Copen<cr>
+
+" javascript & jsx
+let g:javascript_enable_domhtmlcss = 1
+let g:jsx_ext_required = 0
+autocmd FileType javascript setlocal makeprg=flow
+autocmd FileType javascript let b:dispatch = 'webpack'
 
 " ack.vim
 if executable('pt')
@@ -64,22 +68,6 @@ nnoremap <Leader>g :Gcommit -a<cr>
 autocmd FileType ruby let b:dispatch = 'bundle exec rake test'
 autocmd FileType ruby setlocal textwidth=78
 
-autocmd FileType markdown,text,txt setlocal tw=78 linebreak nolist
-
-"clojure
-autocmd FileType clojure RainbowParentheses
-autocmd FileType clojure xnoremap <Leader><Leader> :Eval<CR>
-autocmd FileType clojure nnoremap <Leader><Leader> :Eval<CR>
-let g:clojure_align_subforms = 1
-let g:clojure_align_multiline_strings = 1
-
-" let g:paredit_smartjump = 1
-
-" open-browser
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-
 " ctrlsf
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordPath
@@ -90,7 +78,8 @@ nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 " inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-" vim-flavored-amrkdown
+" markdown, vim-flavored-markdown
+autocmd FileType markdown,text,txt setlocal tw=78 linebreak nolist
 augroup markdown
   autocmd!
   autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown

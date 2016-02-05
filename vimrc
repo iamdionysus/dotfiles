@@ -60,7 +60,8 @@ if executable('pt')
 endif
 
 " vim-easy-align
-xmap <Enter> <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " vim-fugitive
 nmap <Leader>s :Gstatus<cr>gg<c-n>
@@ -88,3 +89,17 @@ augroup markdown
   autocmd!
   autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
+
+" projectionist
+let g:projectionist_heuristics = {
+\    "src/": {
+\     "src/main/scala/*.scala": {
+\       "type": "src",
+\       "alternate": "src/test/scala/{}.scala"
+\     },
+\     "src/test/scala/*.scala": {
+\       "type": "test",
+\       "alternate": "src/main/scala/{}.scala"
+\     }
+\   }
+\ }

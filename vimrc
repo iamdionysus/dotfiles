@@ -26,6 +26,24 @@ nnoremap <Leader>k :buffer#\|bdelete#<cr>
 set clipboard=unnamed
 
 " ----------------------------------------------------------------------
+"  language settings
+" ----------------------------------------------------------------------
+
+" typescript
+autocmd FileType typescript setlocal makeprg=tsc
+
+" javascript & jsx
+let g:javascript_enable_domhtmlcss = 1
+let g:jsx_ext_required = 0
+autocmd FileType javascript setlocal makeprg=flow
+autocmd FileType javascript let b:dispatch = 'webpack'
+
+" ruby
+autocmd FileType ruby setlocal makeprg=ruby\ %
+autocmd FileType ruby let b:dispatch = 'bundle exec rake test'
+autocmd FileType ruby setlocal textwidth=78
+
+" ----------------------------------------------------------------------
 "  plug in settings
 " ----------------------------------------------------------------------
 
@@ -38,6 +56,10 @@ set laststatus=2
 set showtabline=2
 set guioptions-=e
 
+" undotree
+inoremap <F2> <esc>:UndotreeToggle<cr>
+nnoremap <F2> :UndotreeToggle<cr>
+
 " dispatch
 inoremap <F5> <esc>:update<cr>:Make<cr>
 nnoremap <F5> :update<cr>:Make<cr>
@@ -47,12 +69,6 @@ nnoremap <F6> :update<cr>:Dispatch!<cr>
 
 inoremap <F10> <esc>:Copen<cr>
 nnoremap <F10> :Copen<cr>
-
-" javascript & jsx
-let g:javascript_enable_domhtmlcss = 1
-let g:jsx_ext_required = 0
-autocmd FileType javascript setlocal makeprg=flow
-autocmd FileType javascript let b:dispatch = 'webpack'
 
 " ack.vim
 if executable('pt')
@@ -69,10 +85,6 @@ nnoremap <Leader>d :Gdiff<cr>
 nnoremap <Leader>p :Gpush<cr>
 nnoremap <Leader>g :Gcommit -a<cr>
 
-" ruby
-autocmd FileType ruby let b:dispatch = 'bundle exec rake test'
-autocmd FileType ruby setlocal textwidth=78
-
 " ctrlsf
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordPath
@@ -84,11 +96,11 @@ nnoremap <C-F>t :CtrlSFToggle<CR>
 " inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " markdown, vim-flavored-markdown
-autocmd FileType markdown,text,txt setlocal tw=78 linebreak nolist
-augroup markdown
-  autocmd!
-  autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
+" autocmd FileType ghmarkdown,markdown,text,txt setlocal tw=78 linebreak nolist
+" augroup markdown
+"   autocmd!
+"   autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+" augroup END
 
 " projectionist
 let g:projectionist_heuristics = {

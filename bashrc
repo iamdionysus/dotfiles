@@ -19,9 +19,6 @@ if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 # to make C-s, C-q work
 stty -ixoff -ixon
 
-# rails s -e production serve static files
-export RAILS_SERVE_STATIC_FILES=1
-
 # PATH
 export PATH=/usr/local/bin:$PATH
 
@@ -46,3 +43,5 @@ alias grv='git remote --verbose'
 alias gaa='git add --all'
 alias gca='git commit -am'
 alias ggpush='git push'
+alias ap='ansible-playbook'
+alias gm='ghi milestone'

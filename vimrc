@@ -1,8 +1,22 @@
 execute pathogen#infect('~/src/vim/bundle/{}')
 
+" Change swp file location
+set directory=~/src/vim/swp//
+
+" Do this first to fix autocmd FileType not working on some case
+syntax on
+
+" qq to record, Q to replay
+nnoremap Q @q
+
 " <leader> as space
 let mapleader = ' '
 let maplocalleader = ' '
+
+
+" circular windows navigation using tab
+nnoremap <tab>   <c-w>w
+nnoremap <S-tab> <c-w>W
 
 " move lines
 nnoremap <silent> <C-k> :move-2<cr>
@@ -11,9 +25,6 @@ xnoremap <silent> <C-k> :move-2<cr>gv
 xnoremap <silent> <C-j> :move'>+<cr>gv
 xnoremap > >gv " indent
 xnoremap < <gv " dedent
-
-" circular windows navigation
-nnoremap <tab> <c-w>w
 
 " save
 inoremap <C-s> <esc>:update<cr>
@@ -30,13 +41,13 @@ set clipboard=unnamed
 " ----------------------------------------------------------------------
 
 " typescript
-autocmd FileType typescript setlocal makeprg=tsc
+" autocmd FileType typescript setlocal makeprg=tsc
 
 " javascript & jsx
-let g:javascript_enable_domhtmlcss = 1
-let g:jsx_ext_required = 0
-autocmd FileType javascript setlocal makeprg=flow
-autocmd FileType javascript let b:dispatch = 'webpack'
+" let g:javascript_enable_domhtmlcss = 1
+" let g:jsx_ext_required = 0
+" autocmd FileType javascript setlocal makeprg=flow
+" autocmd FileType javascript let b:dispatch = 'webpack'
 
 " ruby
 autocmd FileType ruby setlocal makeprg=ruby\ %

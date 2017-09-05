@@ -1,5 +1,7 @@
 " execute pathogen#infect()
 
+set shortmess=a
+
 " Change swp file location
 set directory=~/src/vim/swp//
 

@@ -1,4 +1,4 @@
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " Change swp file location
 set directory=~/src/vim/swp//

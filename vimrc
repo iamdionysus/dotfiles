@@ -23,8 +23,8 @@ xnoremap > >gv " indent
 xnoremap < <gv " dedent
 
 " save
-inoremap <C-s> <esc>:update<cr>
-nnoremap <C-s> :update<cr>
+" inoremap <C-s> <esc>:update<cr>
+" nnoremap <C-s> :update<cr>
 
 " system clipboard
 set clipboard=unnamed

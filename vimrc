@@ -53,7 +53,7 @@ endif
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" vim-fugitive
+" git
 nmap <Leader>s :Gstatus<cr>gg<c-n>
 nnoremap <Leader>d :Gdiff<cr>
 nnoremap <Leader>p :AsyncRun git push<cr>

@@ -13,7 +13,6 @@ let maplocalleader = ' '
 
 " circular windows navigation using tab
 nnoremap <tab>   <c-w>w
-nnoremap <S-tab> <c-w>W
 
 " move lines
 nnoremap <silent> <C-k> :move-2<cr>
@@ -57,7 +56,7 @@ nmap ga <Plug>(EasyAlign)
 " vim-fugitive
 nmap <Leader>s :Gstatus<cr>gg<c-n>
 nnoremap <Leader>d :Gdiff<cr>
-nnoremap <Leader>p :Gpush<cr>
+nnoremap <Leader>p :AsyncRun git push<cr>
 nnoremap <Leader>g :Gcommit -a<cr>
 
 " ctrlsf

@@ -54,12 +54,12 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Make AsyncRun to cooperate with vim-fugitive
-command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+" Make sure it runs after all the plugin is loaded
+autocmd VimEnter * command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
-" git
+" vim-fugitive
 nmap <Leader>s :Gstatus<cr>gg<c-n>
 nnoremap <Leader>d :Gdiff<cr>
-" nnoremap <Leader>p :AsyncRun git push<cr>
 nnoremap <Leader>p :Gpush<cr>
 nnoremap <Leader>g :Gcommit -a<cr>
 

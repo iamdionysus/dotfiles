@@ -8,19 +8,12 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Path
-if [ -d "$HOME/bin" ]; then
-   PATH="$HOME/bin:$PATH"
-fi
-
 # 256 color and make it work with tmux screen-256color
 if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
 
 # to make C-s, C-q work
 stty -ixoff -ixon
 
-# PATH
-export PATH=/usr/local/bin:$PATH
 
 # aliases
 alias ..='cd ..'
@@ -42,6 +35,8 @@ alias grv='git remote --verbose'
 
 alias gaa='git add --all'
 alias gca='git commit -am'
+alias gba='git branch -a'
 alias ggpush='git push'
 alias ap='ansible-playbook'
-alias gm='ghi milestone'
+
+alias jn='jupyter notebook'

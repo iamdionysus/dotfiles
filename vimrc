@@ -1,10 +1,7 @@
-execute pathogen#infect('~/src/vim/bundle/{}')
+execute pathogen#infect()
 
 " Change swp file location
 set directory=~/src/vim/swp//
-
-" Do this first to fix autocmd FileType not working on some case
-syntax on
 
 " qq to record, Q to replay
 nnoremap Q @q
@@ -30,29 +27,11 @@ xnoremap < <gv " dedent
 inoremap <C-s> <esc>:update<cr>
 nnoremap <C-s> :update<cr>
 
-" kill buffer without closing window
-nnoremap <Leader>k :buffer#\|bdelete#<cr>
-
 " system clipboard
 set clipboard=unnamed
 
-" ----------------------------------------------------------------------
-"  language settings
-" ----------------------------------------------------------------------
-
-" typescript
-" autocmd FileType typescript setlocal makeprg=tsc
-
-" javascript & jsx
-" let g:javascript_enable_domhtmlcss = 1
-" let g:jsx_ext_required = 0
-" autocmd FileType javascript setlocal makeprg=flow
-" autocmd FileType javascript let b:dispatch = 'webpack'
-
-" ruby
-autocmd FileType ruby setlocal makeprg=ruby\ %
-autocmd FileType ruby let b:dispatch = 'bundle exec rake test'
-autocmd FileType ruby setlocal textwidth=78
+" change current working directory
+nnoremap ,cd :cd %:p:h<CR>
 
 " ----------------------------------------------------------------------
 "  plug in settings
@@ -62,24 +41,9 @@ autocmd FileType ruby setlocal textwidth=78
 let g:seoul256_background = 233
 colorscheme seoul256
 
-" vim-flag
-set laststatus=2
-set showtabline=2
-set guioptions-=e
-
 " undotree
 inoremap <F2> <esc>:UndotreeToggle<cr>
 nnoremap <F2> :UndotreeToggle<cr>
-
-" dispatch
-inoremap <F5> <esc>:update<cr>:Make<cr>
-nnoremap <F5> :update<cr>:Make<cr>
-
-inoremap <F6> <esc>:update<cr>:Dispatch!<cr>
-nnoremap <F6> :update<cr>:Dispatch!<cr>
-
-inoremap <F10> <esc>:Copen<cr>
-nnoremap <F10> :Copen<cr>
 
 " ack.vim
 if executable('pt')
@@ -105,13 +69,6 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 " inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
-
-" markdown, vim-flavored-markdown
-" autocmd FileType ghmarkdown,markdown,text,txt setlocal tw=78 linebreak nolist
-" augroup markdown
-"   autocmd!
-"   autocmd BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-" augroup END
 
 " projectionist
 let g:projectionist_heuristics = {

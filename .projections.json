@@ -1,5 +1,0 @@
-{
-  "README.md": {"type": "doc"},
-  "tmux.conf": {"type": "tmux"},
-  "tmuxinator/*.yml": {"type": "tmux"}
-}

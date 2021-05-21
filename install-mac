@@ -1,7 +1,0 @@
-# Remove links
-rm -rf ~/.bashrc
-rm -rf ~/.vimrc
-
-# Add links
-ln -s $(pwd)/bashrc ~/.bashrc
-ln -s $(pwd)/vimrc ~/.vimrc
